@@ -1,0 +1,42 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class SaleService {
+
+    @Autowired
+    private CartService cartService;
+
+    @Autowired
+    private InvoiceService invoiceService;
+
+    @Autowired
+    private StockService stockService;
+
+    public void addItemToCart(CartItemRequest cartItemRequest) {
+        // Implement logic to add an item to the cart
+        cartService.addItemToCart(cartItemRequest);
+    }
+
+    public void removeItemFromCart(CartItemRequest cartItemRequest) {
+        // Implement logic to remove an item from the cart
+        cartService.removeItemFromCart(cartItemRequest);
+    }
+
+    public Cart viewCart() {
+        // Implement logic to retrieve and view the cart
+        return cartService.viewCart();
+    }
+
+    public Invoice generateInvoice() {
+        // Implement logic to generate an invoice from the cart
+        Cart cart = cartService.viewCart();
+        Invoice invoice = invoiceService.generateInvoice(cart);
+        return invoice;
+    }
+
+    public void updateStock(StockUpdateRequest stockUpdateRequest) {
+        // Implement logic to update stock after a sale
+        stockService.updateStock(stockUpdateRequest);
+    }
+}

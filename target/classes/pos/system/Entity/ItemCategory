@@ -1,0 +1,15 @@
+import javax.persistence.*;
+
+@Entity
+@Table(name = "item_categories")
+public class ItemCategory {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    // Add other fields and relationships as needed
+
+    // Getters and setters
+}

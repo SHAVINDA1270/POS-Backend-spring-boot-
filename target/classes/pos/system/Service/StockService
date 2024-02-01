@@ -1,0 +1,8 @@
+@Service
+public class StockService {
+
+    @Autowired
+    private StockRepository stockRepository;
+
+    // Implement CRUD methods
+}

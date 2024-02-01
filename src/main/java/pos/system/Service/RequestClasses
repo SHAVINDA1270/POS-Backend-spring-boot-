@@ -1,0 +1,13 @@
+// CartItemRequest.java
+public class CartItemRequest {
+    private Long itemId;
+    private int quantity;
+    // Getters and setters
+}
+
+// StockUpdateRequest.java
+public class StockUpdateRequest {
+    private Long itemId;
+    private int quantitySold;
+    // Getters and setters
+}

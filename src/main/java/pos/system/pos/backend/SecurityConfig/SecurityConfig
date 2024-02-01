@@ -1,0 +1,15 @@
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
+
+    @Autowired
+    private JwtTokenProvider tokenProvider;
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        // Configure security settings
+    }
+}

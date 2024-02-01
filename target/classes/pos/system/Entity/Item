@@ -1,0 +1,15 @@
+import javax.persistence.*;
+
+@Entity
+@Table(name = "items")
+public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    // Add other fields and relationships as needed
+
+    // Getters and setters
+}

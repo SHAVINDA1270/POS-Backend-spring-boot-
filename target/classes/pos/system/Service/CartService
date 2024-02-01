@@ -1,0 +1,5 @@
+@Service
+public class CartService {
+
+    // Implement methods for managing the cart
+}

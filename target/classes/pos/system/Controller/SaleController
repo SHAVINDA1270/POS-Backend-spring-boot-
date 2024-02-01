@@ -1,0 +1,46 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/sales")
+public class SaleController {
+
+    @Autowired
+    private SaleService saleService;
+
+    // Endpoint for adding an item to the cart
+    @PostMapping("/cart/add")
+    public ResponseEntity<?> addItemToCart(@RequestBody CartItemRequest cartItemRequest) {
+        saleService.addItemToCart(cartItemRequest);
+        return ResponseEntity.ok("Item added to the cart successfully");
+    }
+
+    // Endpoint for removing an item from the cart
+    @PostMapping("/cart/remove")
+    public ResponseEntity<?> removeItemFromCart(@RequestBody CartItemRequest cartItemRequest) {
+        saleService.removeItemFromCart(cartItemRequest);
+        return ResponseEntity.ok("Item removed from the cart successfully");
+    }
+
+    // Endpoint for viewing the cart
+    @GetMapping("/cart/view")
+    public ResponseEntity<?> viewCart() {
+        Cart cart = saleService.viewCart();
+        return ResponseEntity.ok(cart);
+    }
+
+    // Endpoint for generating an invoice
+    @PostMapping("/invoice/generate")
+    public ResponseEntity<?> generateInvoice() {
+        Invoice invoice = saleService.generateInvoice();
+        return ResponseEntity.ok(invoice);
+    }
+
+    // Endpoint for updating stock after a sale
+    @PostMapping("/stock/update")
+    public ResponseEntity<?> updateStock(@RequestBody StockUpdateRequest stockUpdateRequest) {
+        saleService.updateStock(stockUpdateRequest);
+        return ResponseEntity.ok("Stock updated successfully");
+    }
+}

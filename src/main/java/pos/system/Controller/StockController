@@ -1,0 +1,9 @@
+@RestController
+@RequestMapping("/api/stock")
+public class StockController {
+
+    @Autowired
+    private StockService stockService;
+
+    // Implement CRUD endpoints
+}
